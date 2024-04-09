@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CommunicationService } from '../communication.service';
 
 @Component({
-  selector: 'app-about-module',
-  templateUrl: './about-module.component.html',
-  styleUrls: ['./about-module.component.scss'],
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.scss'],
 })
-export class AboutModuleComponent implements OnInit  {
+export class AboutComponent implements OnInit {
   message: string = '';
 
   constructor(private communicationService: CommunicationService) {
@@ -14,7 +14,9 @@ export class AboutModuleComponent implements OnInit  {
   }
 
   ngOnInit(): void {
-    this.communicationService.currentMessage.subscribe(message => this.message = message);
+    this.communicationService.currentMessage.subscribe(
+      (message) => (this.message = message)
+    );
   }
 
   sendMessage(): void {
